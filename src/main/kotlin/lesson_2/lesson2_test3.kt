@@ -9,16 +9,15 @@ fun main() {
     val leaveTrainMinutes = 39
     val time = 457
 
-    // Кол-во часов в пути:
-    val hour = 457 / 60
-    // Кол-во минут в пути:
-    val minutes = time % hour
-
     // Вычисление результата:
-    val resultHours = leaveTrainHour + hour
-    val resultMinutes = leaveTrainMinutes + minutes
+        // Переведём время отправления в минуты от начала дня:
+    val leaveTrainTime = leaveTrainHour * MINUTES_IN_HOUR + leaveTrainMinutes
+    val resultTime = leaveTrainTime + time
+    val resultHours = resultTime / MINUTES_IN_HOUR
+    val resultMinutes = resultTime % resultHours
 
     // Вывод результата:
-    println("Время прибытия поезда: $resultHours : $resultMinutes")
+    println("Время прибытия поезда: %02d:%02d".format(resultHours, resultMinutes))
 
 }
+const val MINUTES_IN_HOUR = 60
