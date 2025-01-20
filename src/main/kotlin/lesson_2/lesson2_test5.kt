@@ -10,10 +10,11 @@ fun main() {
     val percent = 16.7 // процентная ставка
 
     // Расчет сложного процента:
-    val result = sum * (1 + percent * year * 365 / 365 * 100) * 20
-    val result1 = "%.3f".format(result)
+    val result = sum * (1 + percent * year * DAY_IN_YEAR / DAY_IN_YEAR * FULL_PERCENT) * year
 
     // Вывод результата
-    println("Сумма вклада в конце периода составит: $result1 рублей")
-
+    println("Сумма вклада в конце периода составит: %.3f рублей".format(result))
 }
+// ВВодим константы кол-ва дней в году и 100%
+const val DAY_IN_YEAR = 365
+const val FULL_PERCENT = 100
