@@ -10,10 +10,12 @@ fun main() {
     val baff = 20
 
     // Вычисление кол-ва руды, полученной в результате баффа:
-    val crystalBaff = crystalOre - crystalOre * 100 / (100 + baff)
-    val ironBaff = ironOre - ironOre * 100 / (100 + baff)
+    val crystalBaff = crystalOre - crystalOre * PERCENT / (PERCENT + baff)
+    val ironBaff = ironOre - ironOre * PERCENT / (PERCENT + baff)
 
     // Вывод результата:
     println("Получено кристаллической руды сверх нормы: $crystalBaff")
     println("Получено железной руды сверх нормы: $ironBaff")
 }
+// Для вычисления процентов вводим константу 100%
+const val PERCENT = 100
