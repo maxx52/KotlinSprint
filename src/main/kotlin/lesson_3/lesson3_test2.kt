@@ -3,15 +3,12 @@ package ru.maxx52.lesson_3
 fun main() {
 
     // Исходные данные:
-    val name = "Татьяна"
-    val fatherName = "Сергеевна"
-    val surNameBefore = "Андреева"
-    val surNameAfter = "Сидорова"
+    val nameBefore = "Татьяна Сергеевна Андреева"
+    val nameAfter = "Татьяна Сергеевна Сидорова"
     val ageBefore = 20
     val ageAfter = 22
 
     // Вывод результатов:
-    println("$name $fatherName %s, %d лет".format(surNameBefore, ageBefore))
-    println("$name $fatherName %s, %d лет".format(surNameAfter, ageAfter))
-
+    println("$nameBefore, %d лет".format(ageBefore))
+    println("$nameAfter, %d лет".format(ageAfter))
 }
