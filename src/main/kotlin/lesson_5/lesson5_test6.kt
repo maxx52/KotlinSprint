@@ -21,9 +21,9 @@ fun main() {
     // Сравнение полученных результатов:
     val result = if (imt < LOW) {
         "недостаточная масса тела"
-    } else if (imt >= LOW && imt < MEDIUM) {
+    } else if (imt < MEDIUM) {
         "нормальная масса тела"
-    } else if (imt >= MEDIUM && imt < HIGH) {
+    } else if (imt < HIGH) {
         "избыточная масса тела"
     } else {
         "ожирение"
