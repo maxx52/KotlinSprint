@@ -1,12 +1,10 @@
 package ru.maxx52.lesson_5
 
-import kotlin.math.abs
-
 fun main() {
 
     // Исходные данные, список из 3-х рандомных чисел от 0 до 42:
     val defaultList: List<Int> = List(3) {
-        abs((Math.random() * 100 - 58).toInt())
+        (0..42).random()
     }
 
     println("Приветствуем вас в нашей лотерее! Нужно угадать два числа от 0 до 42")
