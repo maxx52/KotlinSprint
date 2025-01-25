@@ -3,15 +3,15 @@ package ru.maxx52.lesson_4
 fun main() {
 
     // Исходные данные:
-    val isEven = 5
-    val bodyPart = isEven % 2 == 0
+    val day = 5
+    val isEven = day % 2 == 0
 
     // Вывод результата:
     println("""
-        Упражнения для рук:     $bodyPart
-        Упражнения для ног:     ${!bodyPart}
-        Упражнения для спины:   ${!bodyPart}
-        Упражнения для пресса:  $bodyPart
+        Упражнения для рук:     $isEven
+        Упражнения для ног:     ${!isEven}
+        Упражнения для спины:   ${!isEven}
+        Упражнения для пресса:  $isEven
     """.trimIndent())
 
 }
