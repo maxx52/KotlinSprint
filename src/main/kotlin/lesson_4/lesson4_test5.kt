@@ -2,19 +2,12 @@ package ru.maxx52.lesson_4
 
 fun main() {
 
-    // Исходные данные:
-        // Корабль без повреждений:
-        val company = 50..70
-        val boxes: Short = 50
-        val isWeather = false
-        val isCrash = false
-
-            // Корабль с повреждениями:
-            val crashCompany = company.equals(70)
+    // Корабль с повреждениями:
+    val crashCompany = COMPANY.equals(70)
 
     // Запрашиваем данные у пользователя:
     println("Наличие повреждений корпуса (true/false):")
-    val crashFromUser = readln().toBoolean()
+    val isCrashFromUser = readln().toBoolean()
 
     println("Текущий состав экипажа:")
     val companyFromUser = readln().toShort()
@@ -23,15 +16,16 @@ fun main() {
     val boxesFromUser = readln().toShort()
 
     println("благоприятность метеоусловий (true / false):")
-    val weatherFromUser = readln().toBoolean()
+    val isWeatherFromUser = readln().toBoolean()
 
     // Проверка условий:
-    val result = crashFromUser == (isCrash &&
-            companyFromUser.equals(company)) ||
-            (crashFromUser == crashCompany) &&
-            (boxesFromUser >= boxes) &&
-            ((weatherFromUser == isWeather) ||
-            (weatherFromUser != isWeather))
+    val result = if (isCrashFromUser == (IS_CRASH && companyFromUser.equals(COMPANY))) {
+        if((isCrashFromUser == crashCompany) && (boxesFromUser >= BOXES)) {
+            if (((isWeatherFromUser == IS_WEATHER) || (isWeatherFromUser != IS_WEATHER))) {
+                true
+            } else false
+        } else false
+    } else false
 
 
     // Проверка условий для плавания:
@@ -39,3 +33,8 @@ fun main() {
         Может ли корабль отправиться в плавание: $result
     """.trimIndent())
 }
+// Корабль без повреждений:
+val COMPANY = 50..70
+const val BOXES: Short = 50
+const val IS_WEATHER = false
+const val IS_CRASH = false
