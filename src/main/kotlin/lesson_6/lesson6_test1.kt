@@ -10,7 +10,6 @@ fun main() {
     println("Введите пароль:")
     val passwordReg = readln()
 
-    // Состояние авторизации пользователя:
     var isAuthorized = false
 
     do {
@@ -22,10 +21,9 @@ fun main() {
         println("Введите пароль:")
         val passwordAuth = readln()
 
-        // Проверка на совпадение логина и пароля:
         if (loginAuth == loginReg && passwordAuth == passwordReg) {
             println("Авторизация прошла успешно!")
-            isAuthorized = true // Меняем состояние на авторизации
+            isAuthorized = true
         } else {
             println("Неверный логин или пароль. Попробуйте снова.")
         }
