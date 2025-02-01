@@ -12,7 +12,7 @@ fun main() {
             if (seconds <= 0) {
                 println("Введите положительное число больше нуля")
             } else {
-                Thread.sleep(seconds * MILLIS)
+                Thread.sleep(seconds * MILLIS_1)
                 println("Прошло $secondsInput сек")
             }
         } catch (e: NumberFormatException) {
@@ -20,4 +20,4 @@ fun main() {
         }
     } while (secondsInput == null)
 }
-const val MILLIS = 1000L
+const val MILLIS_1 = 1000L
