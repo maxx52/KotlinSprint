@@ -17,10 +17,18 @@ fun main() {
         if (passwordLength < 6) {
             println("Количество символов не может быть меньше 6")
         } else {
+            val requiredNumber = numbers.random()
+            val requiredLowercase = lettersLowercase.random()
+            val requiredUppercase = lettersUppercase.random()
+            password.append(requiredNumber)
+            password.append(requiredUppercase)
+            password.append(requiredLowercase)
+
             for (i in 0 until  passwordLength) {
                 val randomSymbol = sharedArray.random()
                 password.append(randomSymbol)
             }
+
             println("Ваш пароль: $password")
         }
     } catch (e: NumberFormatException) {
