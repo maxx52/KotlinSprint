@@ -8,7 +8,7 @@ fun main() {
     val secondsInput = readln()
     do {
         try {
-            var seconds = secondsInput.toInt()
+            val seconds = secondsInput.toInt()
             if (seconds <= 0) {
                 println("Введите положительное число больше нуля")
             } else {
