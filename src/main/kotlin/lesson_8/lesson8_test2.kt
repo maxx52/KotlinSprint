@@ -11,8 +11,11 @@ fun main() {
 
     var isIngredient = false
 
-    for (i in ingredientsList) {
-        isIngredient = ingredientInput in ingredientsList
+    for (ingredient in ingredientsList) {
+        if (ingredient == ingredientInput) {
+            isIngredient = true
+            break
+        }
     }
 
     if (isIngredient) {
