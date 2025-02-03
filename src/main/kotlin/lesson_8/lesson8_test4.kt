@@ -12,12 +12,16 @@ fun main() {
         "овощная смесь",
     )
 
-    println(ingredientsList.joinToString(", "))
+    for (ingredient in ingredientsList) {
+        println(ingredient)
+    }
 
     println("Какой ингредиент вы хотели бы заменить?")
     val findIngredient = readln()
 
-    if (findIngredient !in ingredientsList) {
+    val indexChange = ingredientsList.indexOf(findIngredient)
+
+    if (indexChange == -1) {
         println("Такого ингредиента нет в списке!")
     } else {
         println("Введите ингредиент для замены:")
@@ -26,9 +30,7 @@ fun main() {
         if (changeIngredient.isBlank()) {
             println("Ингредиент для замены не может быть пустым!")
         } else {
-            val indexChange = ingredientsList.indexOf(findIngredient)
             ingredientsList[indexChange] = changeIngredient
-
             println("Готово! Вы сохранили следующий список: ${ingredientsList.joinToString(", ")}")
         }
     }
