@@ -3,7 +3,7 @@ package ru.maxx52.lesson_9
 fun main() {
     println("Пополняемый список ингредиентов")
 
-    val ingredientList = mutableListOf("творог", "сахар", "изюм")
+    val ingredientList = listOf("творог", "сахар", "изюм").toMutableSet()
     println("В рецепте есть базовые ингредиенты: ${ingredientList.joinToString(", ")}")
 
     try {
@@ -14,12 +14,8 @@ fun main() {
             println("Какой ингредиент вы хотели бы добавить?")
             val ingredientInput = readln().trim()
 
-            if (ingredientList.contains(ingredientInput)) {
-                println("Ингредиент '$ingredientInput' уже есть в списке!")
-            } else {
-                ingredientList += ingredientInput
-                println("Теперь в рецепте есть следующие ингредиенты: ${ingredientList.joinToString(", ")}")
-            }
+            ingredientList.add(ingredientInput)
+            println("Теперь в рецепте есть следующие ингредиенты: ${ingredientList.joinToString(", ")}")
         } else {
             println("До свидания!")
         }
