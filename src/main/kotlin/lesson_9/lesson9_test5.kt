@@ -7,7 +7,7 @@ fun main() {
     println("Ввод ингредиентов")
 
     val counter = 5
-    val ingredientList = mutableListOf<String>()
+    val ingredientList = listOf<String>().toMutableSet()
 
     while (ingredientList.size < counter) {
         val counterElements = ingredientList.size
@@ -18,7 +18,7 @@ fun main() {
         if (ingredientInput.isBlank()) {
             println("Название ингредиента не может быть пустым!")
         } else {
-            ingredientList += ingredientInput
+            ingredientList.add(ingredientInput)
         }
     }
     val newList = ingredientList.sorted()
@@ -29,5 +29,5 @@ fun main() {
             } else {
                 it.toString()
             }
-        }}") // Это предложила сама IDEA вместо .capitalize()
+        }}")
 }
