@@ -14,7 +14,7 @@ fun main() {
             } else {
                 while (seconds > 0) {
                     println("Осталось секунд: ${seconds--}")
-                    Thread.sleep(MILLIS1)
+                    Thread.sleep(MILLIS)
                 }
                 println("Время вышло")
             }
