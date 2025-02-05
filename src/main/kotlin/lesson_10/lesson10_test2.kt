@@ -5,16 +5,19 @@ fun main() {
     println("Валидация логина и пароля")
 
     println("Введите логин:")
-    val userLogin = readln()
+    val userLogin = readln().trim()
 
     println("Введите пароль:")
-    val userPassword = readln()
+    val userPassword = readln().trim()
 
-    validateUser(userLogin, userPassword)
+    if (validateUser(userLogin, userPassword)) {
+        println("Добро пожаловать!")
+    } else {
+        println("Длина логина и/или пароля менее $MINIMUM_SYMBOLS символов")
+    }
 }
 const val MINIMUM_SYMBOLS = 4
-fun validateUser(userLogin: String, userPassword: String) {
-    if (userLogin.length < MINIMUM_SYMBOLS || userPassword.length < MINIMUM_SYMBOLS) {
-        println("Логин или пароль недостаточно длинные")
-    }
+fun validateUser(userLogin: String, userPassword: String): Boolean {
+    val isValid = userLogin.length >= MINIMUM_SYMBOLS && userPassword.length >= MINIMUM_SYMBOLS
+    return isValid
 }
