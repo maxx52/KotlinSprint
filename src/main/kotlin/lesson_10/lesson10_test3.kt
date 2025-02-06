@@ -1,17 +1,18 @@
 package ru.maxx52.lesson_10
 
+const val PASSWORD_LENGTH = 6
+
 fun main() {
 
     println("Password generator")
 
     val numbers = 0..9
-    val special = listOf(' ', '!', '@', '#', '$', '%', '^', '&', '*', '\'', '(', ')', '_', '-', '+', '=')
+    val special = ' '..'/'
 
     generatePassword(numbers, special)
-
 }
 
-fun generatePassword(numbers: IntRange, special: List<Char>) {
+fun generatePassword(numbers: IntRange, special: CharRange) {
     val sharedArray = (numbers + special)
     val password = StringBuilder()
 
@@ -19,7 +20,7 @@ fun generatePassword(numbers: IntRange, special: List<Char>) {
         println("Введите требуемое количество символов, минимум 6:")
         val passwordLength = readln().toInt()
 
-        if (passwordLength < 6) {
+        if (passwordLength < PASSWORD_LENGTH) {
             println("Количество символов не может быть меньше 6")
         } else {
             val requiredNumber = numbers.random()
