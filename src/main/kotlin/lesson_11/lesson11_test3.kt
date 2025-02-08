@@ -1,9 +1,7 @@
 package ru.maxx52.lesson_11
 
-// Чё-то я наворотил здесь наверное много лишнего ))
-
 fun main() {
-    val newRoom = Room("Цветная обложка", "Гостевая комната", "Maxx", "smile")
+    val newRoom = Room("Цветная обложка", "Гостевая комната")
 
     val user1 = SimpleUser("Maxx", "avatar1.png")
     val user2 = SimpleUser("Nadya", "avatar2.png")
@@ -11,16 +9,16 @@ fun main() {
     newRoom.addUser(user1)
     newRoom.addUser(user2)
 
+    newRoom.setUserStatus("Maxx", Status.USER_SPEAK)
+    newRoom.setUserStatus("Nadya", Status.USER_MICROPHONE_OFF)
+
     newRoom.printUsers()
 }
 
 class Room(
     val cover: String = "Обложка по умолчанию",
     private val title: String,
-    private val nickName: String,
-    private val avatar: String,
     private var userList: MutableList<User> = mutableListOf(),
-    private val status: List<String> = listOf(USER_SPEAK, USER_MICROPHONE_OFF, USER_MUTED),
 ) {
 
     fun addUser(user: User) {
@@ -29,21 +27,35 @@ class Room(
     }
 
     fun printUsers() {
-        println("Пользователи в комнате \"$title\": ${userList.joinToString { it.nickName }}")
+        println("Пользователи в комнате \"$title\": ")
+        for (user in userList) {
+            println("${user.nickName} (Статус: ${user.status.displayName})")
+        }
+    }
+
+    fun setUserStatus(nickName: String, status: Status) {
+        val user = userList.find { it.nickName == nickName }
+        if (user != null) {
+            user.status = status
+            println("${user.nickName} статус изменён на: ${status.displayName}")
+        } else {
+            println("Пользователь с ником \"$nickName\" не найден.")
+        }
     }
 }
 
-abstract class User(val nickName: String, val avatar: String)
+abstract class User(val nickName: String, val avatar: String) {
+    var status: Status = Status.USER_MUTED
+}
 
 class SimpleUser(nickName: String, avatar: String) : User(nickName, avatar) {
-    fun newUserStatus(status: List<String>): String {
-        return status.random()
-    }
-
-    fun longAvatarPressed(): String {
+    fun onLongPressed(): String {
         return avatar
     }
 }
-const val USER_SPEAK = "разговаривает"
-const val USER_MICROPHONE_OFF = "микрофон выключен"
-const val USER_MUTED = "пользователь заглушен"
+
+enum class Status(val displayName: String) {
+    USER_SPEAK("разговаривает"),
+    USER_MICROPHONE_OFF("микрофон выключен"),
+    USER_MUTED("пользователь заглушен");
+}
