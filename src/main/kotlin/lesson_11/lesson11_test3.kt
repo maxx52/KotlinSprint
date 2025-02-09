@@ -18,10 +18,10 @@ fun main() {
 class Room(
     val cover: String = "Обложка по умолчанию",
     private val title: String,
-    private var userList: MutableList<User> = mutableListOf(),
+    private var userList: MutableList<User1> = mutableListOf(),
 ) {
 
-    fun addUser(user: User) {
+    fun addUser(user: User1) {
         userList.add(user)
         println("${user.nickName} добавлен в комнату \"$title\"")
     }
@@ -44,11 +44,11 @@ class Room(
     }
 }
 
-abstract class User(val nickName: String, val avatar: String) {
+abstract class User1(val nickName: String, val avatar: String) {
     var status: Status = Status.USER_MUTED
 }
 
-class SimpleUser(nickName: String, avatar: String) : User(nickName, avatar) {
+class SimpleUser(nickName: String, avatar: String) : User1(nickName, avatar) {
     fun onLongPressed(): String {
         return avatar
     }
