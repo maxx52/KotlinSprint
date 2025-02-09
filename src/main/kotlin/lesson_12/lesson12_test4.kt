@@ -2,7 +2,7 @@ package ru.maxx52.lesson_12
 
 fun main() {
 
-    val weather = Weather3(301, 293, false)
+    val weather = Weather5(301, 293, false)
 }
 
 class Weather3(
@@ -10,8 +10,8 @@ class Weather3(
     tempNight: Int,
     isRain: Boolean,
 ) {
-    val tempDay = tempDay - KELVIN_TO_CELSIUM
-    val tempNight = tempNight - KELVIN_TO_CELSIUM
+    val tempDay = tempDay - TO_CELSIUM
+    val tempNight = tempNight - TO_CELSIUM
     val isRain = isRain
 
     init {
