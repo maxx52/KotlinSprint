@@ -27,7 +27,12 @@ class Chat {
     }
 
     fun printChat() {
-        val groupedMessages = listMessage.groupBy { it.parentMessageId ?: it.id }
+        val groupedMessages = listMessage.groupBy {
+            when (it) {
+                is ChildMessage -> "ChildMessage"
+                else -> "Message"
+            }
+        }
         for ((_, messages) in groupedMessages) {
             for (message in messages) {
                 message.printMessage(0)
@@ -37,10 +42,9 @@ class Chat {
 }
 
 open class Message(
-    val id: Int,
+    private val id: Int,
     private val text: String,
     private val author: String,
-    val parentMessageId: Int? = null
 ) {
     open fun printMessage(indent: Int) {
         println("${"\t".repeat(indent)}Сообщение от $author (ID: $id): $text")
@@ -51,8 +55,8 @@ class ChildMessage(
     id: Int,
     text: String,
     author: String,
-    parentMessageId: Int
-) : Message(id, text, author, parentMessageId) {
+    val parentMessageId: Int,
+) : Message(id, text, author) {
     override fun printMessage(indent: Int) {
         super.printMessage(indent + 1)
     }
