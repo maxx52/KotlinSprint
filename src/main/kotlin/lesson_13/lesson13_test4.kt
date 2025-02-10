@@ -3,7 +3,7 @@ package ru.maxx52.lesson_13
 const val CONTACT_COUNTER = 5
 
 fun main() {
-    val contactList = mutableListOf<Contact3>()
+    val contactList = mutableListOf<Contact8>()
 
     for (i in 1..CONTACT_COUNTER) {
         println("Введите имя контакта:")
@@ -17,7 +17,7 @@ fun main() {
         val companyInput = readln()
 
         if (phone != null) {
-            val contact = Contact3(name, phone, companyInput.ifBlank { null })
+            val contact = Contact8(name, phone, companyInput.ifBlank { null })
             contactList.add(contact)
         } else {
             println("Не введен номер телефона для $name, запись не добавлена.")
@@ -36,7 +36,7 @@ fun main() {
     }
 }
 
-class Contact3(
+class Contact8(
     private val name: String,
     private val phone: Long? = null,
     val company: String? = null

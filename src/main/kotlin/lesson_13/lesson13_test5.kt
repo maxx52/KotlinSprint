@@ -1,7 +1,7 @@
 package ru.maxx52.lesson_13
 
 fun main() {
-    val contactList = mutableListOf<Contact3>()
+    val contactList = mutableListOf<Contact8>()
 
     println("Введите имя контакта:")
     val name = readln()
@@ -19,7 +19,7 @@ fun main() {
     println("Введите название компании:")
     val companyInput = readln()
 
-    val contact = Contact3(name, phone, companyInput.ifBlank { null })
+    val contact = Contact8(name, phone, companyInput.ifBlank { null })
     contactList.add(contact)
 
     println("\nСозданные контакты:")
