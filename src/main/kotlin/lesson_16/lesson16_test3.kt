@@ -2,7 +2,7 @@ package ru.maxx52.lesson_16
 
 fun main() {
 
-    val user = User("Maxx")
+    val user = User7("Maxx")
 
     println("Здравствуйте, ${user.login}, ведите пароль:")
     try {
@@ -13,7 +13,7 @@ fun main() {
     }
 }
 
-class User(
+class User7(
     val login: String,
 ) {
     private val password: String = "KotlinSprint"
