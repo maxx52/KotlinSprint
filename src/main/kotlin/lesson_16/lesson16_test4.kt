@@ -17,7 +17,7 @@ class Order(
 ) {
     private var status: Status = Status.CREATED
 
-    fun changeStatus(newStatus: Status) {
+    private fun changeStatus(newStatus: Status) {
         status = newStatus
     }
 
