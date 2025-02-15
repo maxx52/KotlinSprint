@@ -2,25 +2,30 @@ package ru.maxx52.lesson_17
 
 fun main() {
     val secretFolder = Folders("Main", 8, true)
-    val normalFolder = Folders("Documents", 654)
+    val normalFolder = Folders()
 
-    println(secretFolder.readFolder())
+    secretFolder.name = "Shared"
+    println(secretFolder.toString())
 
-    println(normalFolder.readFolder())
+    normalFolder.name = "Pictures"
+    println(normalFolder.toString())
 }
 
 class Folders(
-    private val _name: String,
-    private var _volume: Int,
+    private val _name: String = "Documents",
+    private var _volume: Int = 1,
     private var isSecret: Boolean = false,
 ) {
-    private val name: String
+    var name: String = "Documents"
         get() {
             return if (isSecret) {
                 "Скрытая"
             } else {
                 _name
             }
+        }
+        set(value) {
+            field = "Имя папки изменить нельзя!"
         }
 
     private val volume: Int
@@ -32,7 +37,7 @@ class Folders(
             }
         }
 
-    fun readFolder(): String {
-        return "Папка $name, содержит $volume файлов"
+    override fun toString(): String {
+        return "Папка $name, содержит $volume файлов, скрытая? - $isSecret"
     }
 }
