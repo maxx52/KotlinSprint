@@ -19,5 +19,5 @@ class Gamer(
     val name: String,
     var currentHealth: Int,
     val maxHealth: Int,
-    val restoreHealth: () -> Unit = fun() = println("$name восстановил здоровье до $maxHealth"),
+    val restoreHealth: () -> Unit = { println("$name восстановил здоровье до $maxHealth") }
 )
