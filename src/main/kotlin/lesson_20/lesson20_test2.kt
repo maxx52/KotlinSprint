@@ -12,17 +12,12 @@ fun main() {
 
     restoreHealth(player)
 
-    println("Текущее здоровье после использования зелья: ${player.currentHealth}")
+    println("Текущее здоровье после использования зелья: ${player.maxHealth}")
 }
 
 class Gamer(
     val name: String,
     var currentHealth: Int,
-    private val maxHealth: Int
-) {
-
-    fun restoreHealth() {
-        currentHealth = maxHealth
-        println("$name восстановил здоровье до $currentHealth.")
-    }
-}
+    val maxHealth: Int,
+    val restoreHealth: () -> Unit = fun() = println("$name восстановил здоровье до $maxHealth"),
+)
