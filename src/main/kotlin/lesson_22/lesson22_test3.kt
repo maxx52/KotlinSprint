@@ -3,9 +3,12 @@ package ru.maxx52.lesson_22
 fun main() {
 
     val note = Notebook("Acer", 8, 32)
-    println("Название ноутбука: \"${note.name}\"")
-    println("Количество ядер процессора: ${note.coresOfProcessor}")
-    println("Объём оперативной памяти: ${note.ram} Гб")
+
+    val (name, coresOfProcessor, ram) = note
+
+    println("Название ноутбука: \"$name\"")
+    println("Количество ядер процессора: $coresOfProcessor")
+    println("Объём оперативной памяти: $ram Гб")
 }
 
 data class Notebook(
